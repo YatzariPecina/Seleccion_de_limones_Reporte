@@ -1,0 +1,54 @@
+\section{Antecedentes teóricos}
+
+Con el paso de los años, se han visto innovaciones en el campo agrícola, con la llegada del machine learning, se han cambiado los procesos de producción mediante la implementación de sistemas inteligentes. En el caso de la selección de limones se han implementado diferentes modelos por visión computacional para la selección de los limones o mediante el entrenamiento de inteligencias artificiales con fotografías de limones los cuales expertos consideran como de buena madurez y calidad para su distribución.
+
+Para el entendimiento de esta sección y del proyecto en general, es de importancia definir algunos conceptos ya que son la base para el desarrollo e implementación de los sistemas inteligentes.
+
+\textbf{Machine learning (ML):} Es una rama de la inteligencia artificial (IA) y la informática que se centra en el uso de datos y algoritmos para permitir que la IA imite la forma en que los humanos aprenden, mejorando gradualmente su precisión \cite{MachineLearning}
+
+\textbf{Dataset:} Un dataset es una colección organizada de datos que puede incluir números, texto, imágenes o videos, estructurados en filas y columnas. Estos datos se utilizan para análisis y toma de decisiones en diversas disciplinas. Por ejemplo, un dataset de ventas puede contener columnas como Fecha de Venta, Producto, Cantidad, y Precio \cite{Datasets}
+
+\textbf{Limón:} Un dataset es una colección organizada de datos que puede incluir números, texto, imágenes o videos, estructurados en filas y columnas. Estos datos se utilizan para análisis y toma de decisiones en diversas disciplinas. Por ejemplo, un dataset de ventas puede contener columnas como Fecha de Venta, Producto, Cantidad, y Precio \cite{DOF}
+
+\textbf{Norma Oficial Mexicana (NOM):} Las Normas Oficiales Mexicanas (NOM) son regulaciones técnicas de observancia obligatoria expedidas por las dependencias competentes, que tienen como finalidad establecer las características que deben reunir los procesos o servicios cuando estos puedan constituir un riesgo para la seguridad de las personas o dañar la salud humana; así como aquellas relativas a terminología y las que se refieran a su cumplimiento y aplicación \cite{Normas}
+
+\textbf{Tiny Machine Learning (TML):} Se enfoca en desarrollar modelos de aprendizaje automático que pueden ser ejecutados en microcontroladores y otros dispositivos con restricciones de memoria y energía por su tamaño \cite{IA}
+
+\textbf{HSV}: En el modelo de color HSV, un color se define por su tono (H), su saturación (S) y su luminosidad (V), por lo que se parece más a la percepción del color humano que a los modelos de color aditivos y sustractivos. Es fácil ajustar un color por su saturación y brillo \cite{ModeloColor}.
+
+\textbf{Edge Impulse}: Edge Impulse es una plataforma para desarrollar algoritmos de aprendizaje máquina enfocados a implementarse en sistemas embebidos como microcontroladores o computadoras con recursos reducidos \cite{EdgeImpulse}.
+
+\textbf{ESP32 Cam}: ESP32-CAM, es un dispositivo que puede llamarse un todo en uno. Aparte de la conectividad Wifi y Bluetooth que viene de fábrica, pines GPIO, se le han añadido dos opciones más. Lleva integrada una pequeña cámara de vídeo y una conexión para una tarjeta MicroSD, donde podremos almacenar fotos o vídeos.
+
+Históricamente el limón en México se empezó a cultivar en el siglo XX en el estado de Michoacán \cite{Frutas} y pronto se extendió hacia los estados vecinos. En esos años los limones eran seleccionado por su tamaño y por su grado de madurez, aunque también debían de cumplir la característica de ser mayores de 41mm, aquellos limones los cuales presentaran un color amarillento o con colores desuniformes o manchado se separaban y eran enviados al mercado local, mientras que los limones de color uniforme se empacaban para su exportación nacional e internacional \cite{Frutas}. 
+
+Este proceso era realizado por personas con conocimientos en el campo agrícola, pero a pesar de esto, el error humano persistía y en ocasiones los limones de exportación no cumplían con las características necesarias para su embalaje.
+
+Este proyecto de selección de limones se enfoca en separar los limones en “buen estado” de los limones en “mal estado”, es decir los limones en “buen estado” serán limones para la venta en el mercado local y para la exportación, mientras que los limones en mal estado serán desechados ya que simplemente no son aptos para el consumo humano.
+
+Actualmente los limones que se producen en el país están regulados bajo la NOM-FF-331-A-1981 la cual define características que deben cumplir los limones mexicanos para ser consumidos por el humano o comercializados.
+
+En el 2018 el Ingeniero en sistemas computacionales Juan Orlando Salazar Campos de la Universidad Privada del Norte publicó la tesis “DESARROLLO DE UN SISTEMA DE VISIÓN ARTIFICIAL PARA REALIZAR UNA CLASIFICACIÓN UNIFORME DE LIMONES” en la cual se desarrolla un sistema utilizando la visión artificial para clasificar los limones de manera uniforme
+
+“Las formas y dimensiones de los limones a ser analizados están sujetos al códex de la lima-limón de la Organización de Comida y Agricultura de las Naciones Unidas” \cite{Vision}.
+
+Afirma que: “en ese año no existía tecnología de información asociada al proceso de clasificación de limones, esto brinda la posibilidad de explorar alternativas basadas en áreas de la computación que ayude en el proceso de clasificación con visión artificial” \cite{Vision}.
+
+El algoritmo desarrollado en este proyecto obtuvo resultados bastante satisfactorios con una eficacia del 83.9\%, sensibilidad de 82:8\% y especificidad del 100\%. Comprobó que su hipótesis planteada, la cual sostenía que un sistema de visión artificial permite una clasificación uniforme de limones \cite{Vision}.
+
+El entorno fotográfico que utilizó para la toma de muestras constaba de un trípode con una lámpara LED y un fondo milimetrado donde las imágenes tomadas eran enviadas a la PC para ser procesadas con HSV, realzando el contraste y reduciendo el ruido, posteriormente aplicando filtros para segmentarla por el umbral, descripción de la región y el reconocimiento e interpretación de la decisión teórica.
+Se realizaron pruebas con 385 imágenes en las cuales contenían limones en diferentes estados de madurez, en un ambiente controlado “bajo criterio personal”
+
+Los resultados de este proyecto fueron los siguientes: Verdadero positivo(VP) de 298 limones con dimensiones y colores que cumplen la norma, Verdadero negativo(VN) de 25 limones con dimensiones y color que no cumple la norma y por último Falso positivo (FP) de 0 limones con otras características y Falso Negativo(FN) con 62 limones los cuales no se les asignó una característica correcta.
+
+Con los resultados obtenidos es como concluye el proyecto del clasificador de limones, si bien esto fue un buen proyecto, solo se presentó el algoritmo que clasificaba los limones, pero aún quedaba en duda cómo aplicar este algoritmo a una línea de producción, es decir, como fabricar una cinta transportadora en la cual en una parte se efectuará la clasificación mediante machine learning.
+
+Un año antes del publicación de la tesis anterior, se presento un documento en el cual se presentaba otro proyecto idéntico el cual se llamo“ SISTEMA AUTOMATICO DE SELECCIÓN DE LIMÓN (Citrus  Latifolia Tanaka) BASADO EN DISCRIMINACIÓN POR COLOR. Este sistema está basado en el procesamiento digital de imágenes para seleccionar limones persa el cual en México es el de mayor producción. Se basa en una camara de inspección que establece las condiciones necesarias para el procesamiento de iamgenes realizando el analisis y segmentacion de color, asi como tambien analisis morfologico del fruto, el cual dtermina sus caractersiticas y calidad siendo un sistema de bajo costo debido a que soporta su operacion en una computadora personal y una camara web de alta definición \cite{SistemaSeleccion}.
+
+Su sistema consta de un depósito de frutos, una cámara de inspección y un depósito de frutos clasificados, los limones se mueven mediante una banda transportadora. En el depósito de frutos, se ingresan una variedad de limones comprados en mercados de Orizaba, Veracruz, los limones ya vienen lavados y sin imperfecciones producidos por el ambiente de transporte (maleza, tierra o manchas de otros frutos), estos limones caen en una banda transportadora construida con rodillos con un sistema que hace que los limones vayan uno detrás del otro, la banda transportadora pasa por una cámara de inspección en la cual se inspeccionan y se lleva a cabo el proceso de selección, posteriormente, al final de la banda una válvula electrónica separa los limones de acuerdo a su tonalidad.
+
+Para un mejor procesado de las imágenes mediante HSV se tiene un control de iluminación, las imágenes son segmentadas por color, posteriormente se separan por regiones de interés, se detectan los contornos y por último los círculos. De esta manera es como se van clasificando los limones por su tonalidad de color.
+
+Como resultado y conclusión de este proyecto: Se presenta una alternativa económica basada en el procesamiento de imágenes en tiempo real que utiliza únicamente una computadora personal, una cámara web y una caja cerrada con iluminación controlada como cámara de inspección este dispositivo fue desarrollado con la intención de dotar a los productores en pequeño, de un equipo que les ayude en su tarea de selección con el fin de promover la exportación e incrementar sus beneficios \cite{SistemaSeleccion}.
+
+Con la consulta del trabajo anterior y tesis, nos podemos dar una idea de como empezar este proyecto de selector de limones, a pesar de tener un mismo objetivo que es clasificar los limones en buenos y malos, este proyecto se diferencia en que se utilizara “Tiny Machine Learning, es decir mediante ML se clasificaron los limones y todo estará embebido en un sistema independiente sin necesidad de que sea intervenido o ocupe opinión de un humano para su proceso de selección, no tendrá la necesidad de tener conexión a una computadora. Se utilizará el modelo HSV para la clasificación de los limones con ayuda de la plataforma de Edge Impulse y con una ESP32 Cam para la obtención de muestras y posterior para la clasificación. Utilizando materiales como servomotores, bandas transportadoras y recolectores se hará el sistema para el transporte del limón hacia el área de clasificación. 

@@ -1,0 +1,250 @@
+% Actualizacion 2024: Logotipos de la UPV
+
+\documentclass[12pt]{article}
+\usepackage[left=2.5cm,top=2.0cm,right=2.5cm,bottom=3.0cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+%\usepackage[english, american]{babel}
+%\usepackage[spanish,es-tabla]{babel}
+\usepackage[linguistics]{forest}
+\usepackage{amssymb, amsmath, amsbsy} % simbolitos
+\usepackage{longtable} % para tablas largas
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{subcaption}
+%\usepackage{parskip}
+\usepackage[skip=12pt plus1pt]{parskip}
+\usepackage{pdfpages} % Incluir PDF en documento en LATEX
+\usepackage{verbatim} % comentarios
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{pdflscape}
+\usepackage{multirow}
+\usepackage{afterpage}
+\usepackage{array,booktabs,ragged2e}
+%\newcolumntype{R}[1]{>{\RaggedLeft\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\floatname{algorithm}{Algoritmo}
+\renewcommand{\listalgorithmname}{Lista de algoritmos}
+\renewcommand{\algorithmicrequire}{\textbf{Entrada:}}
+\renewcommand{\algorithmicensure}{\textbf{Salida:}}
+
+% Comentario con respecto a las referencias:
+% Por defecto este documento utiliza el formato IEEEtr para formatear las referencias. Si algun asesor requiere formato APA, solo comente la siguiente linea y descomente la linea debajo. Tambien para que las citas funcionen de manera adecuada, el paquete label debe tener las opciones mostradas, o en su defecto, el año en el listado no lo muestra correctamente \usepackage[english, american]{babel}
+
+% Para utilizar el formato de citas IEEE y comentar los dos parrafos siguientes
+\usepackage[backend=bibtex,sorting=none]{biblatex}
+% Para utilizar el formato APA, sugiero comentar la linea anterior y descomentar las dos proximas lineas
+%\usepackage[backend=biber,style=apa]{biblatex}
+%\DeclareLanguageMapping{english}{american-apa}
+
+\makeatletter
+\DefineBibliographyExtras{spanish}{%
+  \setcounter{smartand}{1}%
+  \let\lbx@finalnamedelim=\lbx@es@smartand
+  \let\lbx@finallistdelim=\lbx@es@smartand
+}
+\renewbibmacro*{name:delim:apa:family-given}[1]{%
+  \ifnumgreater{\value{listcount}}{\value{liststart}}
+    {\ifboolexpr{
+       test {\ifnumless{\value{listcount}}{\value{liststop}}}
+       or
+       test \ifmorenames
+     }
+       {\printdelim{multinamedelim}}
+       {\lbx@finalnamedelim{#1}}}
+    {}}
+\makeatother
+
+
+% Estas lineas permiten romper los hipervinculos muy largos en las referencias!!!!
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+\addbibresource{x.bib} % ARCHIVO DE BIBLIOGRAFÍA
+
+
+%\usepackage{url}
+\usepackage[bookmarks=true,breaklinks=true,bookmarksopen=false,colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage[hyphenbreaks]{breakurl}
+% Regla que define explicitamente que caracteres rompen los hipervinculos para separar las lineas
+%https://es.overleaf.com/11089898rhgykrqyqytx
+% Actualiza en automático la fecha de las citas de internet a la fecha de la compilación del documento
+\usepackage{datetime}
+\newdateformat{specialdate}{\twodigit{\THEDAY}-\twodigit{\THEMONTH}-\THEYEAR}
+%\newdateformat{specialdate}{\twodigit{\THEDAY}-\THEYEAR}
+\date{\specialdate\today}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.25mm}}
+
+
+% CONSTANTES NECESARIAS PARA EL DOCUMENTO ---> MODIFIQUEN A SU CRITERIO
+\newcommand{\ncarrera}            {Ingeniería en Tecnologías de la Información}
+\newcommand{\maestro}{Dr. Said Polanco Martagón}
+\newcommand{\NombreAlumnoJesus}{Jesus Antonio Olazarán Mora}
+\newcommand{\NombreAlumnoDamaris}{Damaris Alexia Espinosa Castro}
+\newcommand{\NombreAlumnoLuisana}{Luisana Guadalupe Rodríguez  Salas}
+\newcommand{\NombreAlumnoHer}{Hermayonick Catalina Hernández González}
+\newcommand{\NombreAlumnoJose}{José Guadalupe Martínez Herrera}
+\newcommand{\NombreAlumnoYatzari}{Yatzari Eduve Pecina Vidales}
+%Hombres cambien LA por EL
+\newcommand{\elolaNombreAlumno}{el}  
+\newcommand{\OA}           {o}  %Hombres cambien A por O
+\newcommand{\Matricula}           {1730505}  %SU MATRICULA
+\newcommand{\NombreProyecto}{Máquina de selección de limones}
+\newcommand{\fechacarta}{26 de Abril de 2021}
+\newcommand{\ncuatrimestre}{Septiembre-Diciembre 2024}
+\newcommand{\nevalador}{Dr. Hiram Herrera Rivas}
+\newcommand{\FechaExposicion}{11 de Agosto de 2021}
+\newcommand{\HoraExposionFormatoVenticuatroHoras}{10:00}
+\newcommand{\elolaNombreEmpresa}{la}  %Si la empresa es femenino (por ejemplo universidad, usen la) o masculino (el instituto) pongan el
+\newcommand{\organismoreceptor}   {Universidad Politécnica de Victoria}
+
+% NOTA: Dos diagonales juntas (\\) indican un saldo de linea. En este caso particular hay 2 (el titulo se ajusta a tres lineas, porque es muy largo. Hacer las adecuaciones pertinentes
+\newcommand{\NombreProyectoheader}     {Maquina de selección de limones}
+\newcommand{\fechaPortada}               {Octuble del 2024}
+
+
+
+
+
+\newcommand{\separacionCorta}{0.0cm}
+\newcommand{\separacionLarga}{1.2cm}
+\newcommand{\separacionParrafo}{0.8cm}
+
+\usepackage[overload]{textcase}
+\newcommand{\iemph}[1]{\MakeTextUppercase{#1}}
+
+\pagestyle{fancy}
+\headheight 45pt
+\fancyhead{} % Clear all header fields
+\fancyhead[L]{\includegraphics[height=1.00cm]{UTYP.png}}%
+\fancyhead[C]{\begin{center}\NombreProyectoheader\end{center}}%
+%\fancyhead[R]{\includegraphics[height=1.5cm]{LogoUPV_2019.png}}%
+\fancyhead[R]{\includegraphics[height=1.25cm]{LogoUPV_2023.png}}%
+\fancyfoot[R]{\thepage} % Clear all footer fields 
+\fancyfoot[C]{}
+\fancyfoot[L]{}
+
+\DefineBibliographyStrings{english}{%
+  references = {Referencias},% replace "references" with "bibliography"  for `book`/`report`
+}
+
+\addto\captionsenglish{%
+  \renewcommand{\figurename}{Figura}%
+  \renewcommand{\tablename}{Tabla}%
+} 
+
+\usepackage{wallpaper}
+ 
+ 
+%\renewcommand{\figurename}{Figura}
+%\renewcommand{\tablename}{Tabla}
+
+ 
+\begin{document}
+
+%-----------------------------------------------------------------------------------------------------------------
+% PAGINA 1 - PORTADA
+\setcounter{page}{1}
+\pagenumbering{roman}
+\thispagestyle{empty}
+
+\begin{center}
+
+\begin{tabular}{cp{5cm}c}
+\includegraphics[height=2.25cm]{UTYP.png} & 
+& \includegraphics[height=2.25cm]{LogoUPV_2023.png}   \\
+\end{tabular}
+
+\Large \textbf{UNIVERSIDAD POLITÉCNICA DE VICTORIA}
+\vspace{0.5cm}
+\hrule
+\vspace{0.1cm} 
+\hrule
+\vspace{0.5cm}
+
+
+%\HRule \\[\separacionCorta]
+\textbf{\iemph{\NombreProyecto}} \\[\separacionLarga]
+%\Large \textbf{TESINA}
+%\HRule \\[\separacionLarga]
+T E S I N A \\[\separacionLarga]
+
+PRESENTA: \\[\separacionCorta]
+%\textbf{\Capitalize{\NombreAlumno}\\[\separacionLarga]
+\textbf{\iemph{\NombreAlumnoDamaris}}\\[\separacionCorta]
+\textbf{\iemph{\NombreAlumnoHer}}\\[\separacionCorta]
+\textbf{\iemph{\NombreAlumnoJose}}\\[\separacionCorta]
+\textbf{\iemph{\NombreAlumnoJesus}}\\[\separacionCorta]
+\textbf{\iemph{\NombreAlumnoYatzari}}\\[\separacionCorta]
+\textbf{\iemph{\NombreAlumnoLuisana}}\\[\separacionLarga]
+%EN CUMPLIMIENTO DE \\[\separacionCorta]
+%LA ESTADÍA DE LA CARRERA DE \\[\separacionCorta]
+
+
+MAESTRO \\[\separacionCorta]
+\textbf{\iemph{\maestro}} \\[\separacionLarga]
+
+ORGANISMO RECEPTOR \\[\separacionCorta]
+\textbf{\iemph{\organismoreceptor}} \\[\separacionLarga]
+
+\end{center}
+\begin{flushright}
+\iemph{Ciudad Victoria, Tamaulipas, \fechaPortada}
+\end{flushright}
+
+\HRule 
+
+%-----------------------------------------------------------------------------------------------------------------
+% PAGINA 2 - INDICE
+
+%\clearpage
+%\addcontentsline{toc}{section}{Índice}
+%\renewcommand\contentsname{Índice}
+%\tableofcontents
+
+%-----------------------------------------------------------------------------------------------------------------
+% CAPITULOS
+
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\clearpage
+\input{introduccion}
+
+\clearpage
+\input{Antecedentes_teoricos}
+
+\clearpage
+\input{Descripcion}
+
+\clearpage
+\input{Motivacion}
+
+\clearpage
+\input{Justificacion}
+
+\clearpage
+\input{alcances_limitaciones}
+
+%-----------------------------------------------------------------------------------------------------------------
+% REFERENCIAS
+
+
+\clearpage
+%Let's cite! The Einstein's journal paper \cite{dirac} and the Dirac's 
+%book \cite{einstein} are physics related items. 
+
+%\Urlmuskip=0mu plus 1mu\relax
+\addcontentsline{toc}{section}{Referencias} 
+\printbibliography
+ 
+\end{document}
